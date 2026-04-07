@@ -238,6 +238,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 9. Navbar Transparent → Solid on scroll past hero
+    const navbar = document.querySelector('.navbar');
+    const heroSection = document.getElementById('hero');
+
+    function updateNavbar() {
+        if (!heroSection || !navbar) return;
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        if (window.scrollY >= heroBottom - 80) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar(); // Run on load
+
     // 10. Magnetic CTAs
     document.querySelectorAll('.link-cta').forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
