@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Salon | Local Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="local-nav">
+        <div class="logo">Glow.</div>
+        <div class="nav-right">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#team">Our Team</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="btn-gold" id="bookNavBtn">Book Appointment</a>
+        </div>
+    </nav>
+
+    <header class="local-hero">
+        <div class="hero-bg-container">
+            <div class="hero-bg"></div>
+        </div>
+        <div class="hero-content">
+            <div class="mask-reveal">
+                <h1 class="reveal-text">Elevate your natural beauty.</h1>
+            </div>
+            <p class="reveal-stagger">Premium salon services tailored specifically to you. Experience the luxury of dedicated care.</p>
+            <div class="reveal-stagger">
+                <a href="#" class="btn-gold large" id="heroBookBtn">Book Your Consultation</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator reveal-stagger">
+            <span>Scroll to Explore</span>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <section id="about" class="about reveal">
+        <div class="about-container">
+            <div class="about-image reveal">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?fit=crop&w=800&q=80" alt="Salon Interior">
+            </div>
+            <div class="about-text">
+                <span class="subtitle">Our Story</span>
+                <h2>Crafting beauty since 2012.</h2>
+                <p>At Glow, we believe that true elegance is a reflection of your inner self. Founded by Sarah Jenkins, our salon has been a sanctuary for those seeking premium care and personalized styling for over a decade.</p>
+                <p>Our philosophy is simple: we combine artistic vision with technical precision to elevate your natural beauty. We use only the finest sustainable products, ensuring that your experience is as kind to the earth as it is to your hair.</p>
+                <div class="stats reveal">
+                    <div class="stat-item">
+                        <span class="count">12k+</span>
+                        <span class="label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="count">15</span>
+                        <span class="label">Award Wins</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services reveal">
+        <div class="section-heading">
+            <span class="subtitle">Our Offerings</span>
+            <h2>Signature Services</h2>
+        </div>
+        
+        <div class="service-categories">
+            <div class="service-cat-item reveal active" data-category="color">Color & Cut</div>
+            <div class="service-cat-item reveal" data-category="styling">Styling & Care</div>
+            <div class="service-cat-item reveal" data-category="bridal">Bridal & Special</div>
+        </div>
+
+        <div class="service-list category-active" id="serviceList">
+            <!-- Color & Cut -->
+            <div class="service-group" data-group="color">
+                <div class="service-row reveal">
+                    <div class="name">Balayage & Color</div>
+                    <div class="line"></div>
+                    <div class="price">From $120</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Full Highlights</div>
+                    <div class="line"></div>
+                    <div class="price">From $150</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Precision Cut & Style</div>
+                    <div class="line"></div>
+                    <div class="price">From $85</div>
+                </div>
+            </div>
+            
+            <!-- Styling & Care -->
+            <div class="service-group" data-group="styling" style="display: none;">
+                <div class="service-row reveal">
+                    <div class="name">Keratin Treatment</div>
+                    <div class="line"></div>
+                    <div class="price">From $250</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Deep Conditioning</div>
+                    <div class="line"></div>
+                    <div class="price">From $60</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Silk Press & Style</div>
+                    <div class="line"></div>
+                    <div class="price">From $75</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Scalp Massage Spa</div>
+                    <div class="line"></div>
+                    <div class="price">From $40</div>
+                </div>
+            </div>
+
+            <!-- Bridal & Special -->
+            <div class="service-group" data-group="bridal" style="display: none;">
+                <div class="service-row reveal">
+                    <div class="name">Bridal Styling</div>
+                    <div class="line"></div>
+                    <div class="price">Consultation</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Bridesmaid Style</div>
+                    <div class="line"></div>
+                    <div class="price">From $100</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Special Occasion Updo</div>
+                    <div class="line"></div>
+                    <div class="price">From $95</div>
+                </div>
+                <div class="service-row reveal">
+                    <div class="name">Bridal Trial Session</div>
+                    <div class="line"></div>
+                    <div class="price">From $80</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery reveal">
+        <div class="section-heading">
+            <span class="subtitle">Visual Portfolio</span>
+            <h2>The Glow Portfolio</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?fit=crop&w=600&q=80" alt="Work 1"></div>
+            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?fit=crop&w=600&q=80" alt="Work 2"></div>
+            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?fit=crop&w=600&q=80" alt="Work 3"></div>
+            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?fit=crop&w=600&q=80" alt="Work 4"></div>
+            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?fit=crop&w=600&q=80" alt="Work 5"></div>
+            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?fit=crop&w=600&q=80" alt="Work 6"></div>
+        </div>
+    </section>
+
+    <section class="banner reveal">
+        <h2>"The only salon I trust. Pure elegance and perfect attention to detail."</h2>
+        <p>- Emma T.</p>
+    </section>
+
+    <section id="team" class="team reveal">
+        <div class="section-heading">
+            <span class="subtitle">Meet The Experts</span>
+            <h2>Our Creative Team</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=400&q=80" alt="Sarah J.">
+                </div>
+                <h3>Sarah Jenkins</h3>
+                <p>Master Stylist & Founder</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=400&q=80" alt="Marcus V.">
+                </div>
+                <h3>Marcus Vance</h3>
+                <p>Color Specialist</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fit=crop&w=400&q=80" alt="Elena K.">
+                </div>
+                <h3>Elena Kostova</h3>
+                <p>Bridal Expert</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq reveal">
+        <div class="section-heading">
+            <span class="subtitle">Your Questions</span>
+            <h2>General Inquiries</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item reveal">
+                <div class="faq-question">What is your cancellation policy? <span class="icon">+</span></div>
+                <div class="faq-answer"><p>We request at least 24 hours' notice for cancellations. Within 24 hours, a fee may apply as we hold that time specifically for you.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question">Do you offer bridal consultations? <span class="icon">+</span></div>
+                <div class="faq-answer"><p>Yes, we offer comprehensive bridal consultations and trial sessions to ensure your dream look is perfect on your big day.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question">What products do you use? <span class="icon">+</span></div>
+                <div class="faq-answer"><p>We exclusively use salon-grade, sustainable, and organic products from Oway and Kevin Murphy to ensure the health of your hair.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+        <div class="section-heading">
+            <span class="subtitle">Get In Touch</span>
+            <h2>Book Your Visit</h2>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-gold">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-item reveal">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-text">
+                        <h3>Visit Us</h3>
+                        <p>123 Elegance Blvd, Fashion District<br>New York, NY 10001</p>
+                    </div>
+                </div>
+                
+                <div class="info-item reveal delay-1">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-text">
+                        <h3>Hours</h3>
+                        <p>Tue - Fri: 10am - 8pm<br>Sat: 9am - 6pm<br>Sun - Mon: Closed</p>
+                    </div>
+                </div>
+
+                <div class="info-item reveal delay-2">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-text">
+                        <h3>Contact</h3>
+                        <p>+1 (212) 555-0123<br>hello@glowsalon.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer reveal">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">Glow.</div>
+                <p>Elevating beauty since 2012.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Pinterest</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Inspired</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Email Address">
+                    <button class="newsletter-btn">→</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Glow Salon. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="section-heading">
+                <span class="subtitle">Experience Glow.</span>
+                <h2>Reserve Your Spot</h2>
+            </div>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-grid">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <select required>
+                        <option value="" disabled selected>Select Service</option>
+                        <option value="color">Balayage & Color</option>
+                        <option value="cut">Precision Cut & Style</option>
+                        <option value="keratin">Keratin Treatment</option>
+                        <option value="bridal">Bridal Styling</option>
+                    </select>
+                    <input type="date" required>
+                </div>
+                <button type="submit" class="btn-gold large">Confirm Booking</button>
+            </form>
+            <div id="bookingSuccess" class="success-msg" style="display:none;">
+                <h3>Thank you!</h3>
+                <p>Your appointment request has been received. We'll contact you shortly to confirm.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

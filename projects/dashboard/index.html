@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard UI | Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="icon-box">⚡</div>
+                <span>Analytics.</span>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">MAIN</div>
+                <a href="#" class="active"><span class="icon">📊</span> Dashboard</a>
+                <a href="#"><span class="icon">👥</span> Audience</a>
+                <a href="#"><span class="icon">📈</span> Campaigns</a>
+                <a href="#"><span class="icon">💰</span> Revenue</a>
+                
+                <div class="nav-section mt">SETTINGS</div>
+                <a href="#"><span class="icon">⚙️</span> Settings</a>
+                <a href="#"><span class="icon">🔒</span> Security</a>
+            </nav>
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=100&q=80" alt="User">
+                <div class="info">
+                    <strong>Nageshwar G.</strong>
+                    <span>Admin</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="search">
+                    <span class="icon">🔍</span>
+                    <input type="text" placeholder="Search analytics...">
+                </div>
+                <div class="actions">
+                    <button class="icon-btn">🔔<span class="dot"></span></button>
+                    <button class="btn-primary">Export Report</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>Overview</h1>
+                    <select class="date-select">
+                        <option>Last 30 Days</option>
+                        <option>Last 7 Days</option>
+                        <option>This Year</option>
+                    </select>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="header">Total Revenue</div>
+                        <div class="value">$124,563.00</div>
+                        <div class="trend positive">↑ 12.5% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="header">Active Users</div>
+                        <div class="value">45,231</div>
+                        <div class="trend positive">↑ 8.2% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="header">Bounce Rate</div>
+                        <div class="value">24.5%</div>
+                        <div class="trend negative">↓ 2.1% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="header">Session Duration</div>
+                        <div class="value">4m 32s</div>
+                        <div class="trend positive">↑ 0.5% from last month</div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card main-chart">
+                        <h3>Revenue Growth</h3>
+                        <!-- Mock Chart via CSS/SVG -->
+                        <div class="mock-chart">
+                            <svg viewBox="0 0 500 150" class="chart-line">
+                                <path d="M0,150 L50,120 L100,130 L150,80 L200,90 L250,40 L300,50 L350,20 L400,30 L450,10 L500,5" fill="none" stroke="#6366f1" stroke-width="3"/>
+                                <path d="M0,150 L50,120 L100,130 L150,80 L200,90 L250,40 L300,50 L350,20 L400,30 L450,10 L500,5 L500,150 Z" fill="rgba(99, 102, 241, 0.1)" stroke="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="chart-card side-chart">
+                        <h3>Traffic Sources</h3>
+                        <div class="bar-chart">
+                            <div class="bar-group">
+                                <span class="label">Direct</span>
+                                <div class="bar"><div class="fill" style="width: 75%; background: #6366f1;"></div></div>
+                                <span class="pct">75%</span>
+                            </div>
+                            <div class="bar-group">
+                                <span class="label">Social</span>
+                                <div class="bar"><div class="fill" style="width: 45%; background: #8b5cf6;"></div></div>
+                                <span class="pct">45%</span>
+                            </div>
+                            <div class="bar-group">
+                                <span class="label">Referral</span>
+                                <div class="bar"><div class="fill" style="width: 25%; background: #ec4899;"></div></div>
+                                <span class="pct">25%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

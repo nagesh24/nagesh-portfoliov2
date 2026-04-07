@@ -1,0 +1,4 @@
+Please place the images you uploaded into this folder so they appear in your portfolio:
+- Rename your close-up portrait (2.jpg) to: profile.jpg
+- Rename your standing portrait (3.jpg) to: standing.jpg
+- Replace the images, and simply open index.html in your browser!
