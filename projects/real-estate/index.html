@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxEstate — Premium Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100;200;300;400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- ─── PRELOADER ─── -->
+<div id="preloader">
+  <div class="preloader-logo" id="preloaderLogo">
+    <span class="lux-letter">L</span>
+    <span class="lux-letter">U</span>
+    <span class="lux-letter">X</span>
+    <span class="estate-span">
+      <span class="estate-letter">E</span>
+      <span class="estate-letter">s</span>
+      <span class="estate-letter">t</span>
+      <span class="estate-letter">a</span>
+      <span class="estate-letter">t</span>
+      <span class="estate-letter">e</span>
+    </span>
+  </div>
+</div>
+
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="agents.html">Agents</a>
+    <a href="about.html">About</a>
+    <a href="favorites.html" style="display:flex;align-items:center;gap:6px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)" stroke="var(--gold)" stroke-width="2" style="margin-bottom:1px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Favorites
+      <span id="favCount" style="font-size:10px;background:var(--gold);color:white;padding:1px 5px;border-radius:10px;margin-left:2px;display:none">0</span>
+    </a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="nav-cta" onclick="window.location.href='contact.html'">Inquire</button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="display:none;position:fixed;top:76px;left:0;right:0;background:rgba(13,13,13,0.97);backdrop-filter:blur(16px);z-index:999;padding:24px 32px;border-bottom:1px solid rgba(255,255,255,0.05)">
+  <a href="index.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Home</a>
+  <a href="properties.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Properties</a>
+  <a href="agents.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Agents</a>
+  <a href="about.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">About</a>
+  <a href="contact.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display)">Contact</a>
+</div>
+
+<!-- ════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════ -->
+<div id="page-home" class="page active">
+  <div class="cinematic-hero-wrapper">
+    <section class="cinematic-layer layer-exterior" id="exteriorLayer">
+      <div class="cinematic-split split-left" id="exteriorLeft">
+        <div class="cinematic-bg bg-left" style="background-image: url('assets/cinematic_exterior_v3.png')"></div>
+        <div class="cinematic-overlay"></div>
+      </div>
+      <div class="cinematic-split split-right" id="exteriorRight">
+        <div class="cinematic-bg bg-right" style="background-image: url('assets/cinematic_exterior_v3.png')"></div>
+        <div class="cinematic-overlay"></div>
+      </div>
+      <div class="cinematic-noise"></div>
+      
+      <div class="cinematic-content" id="heroContent">
+        <div class="cinematic-label">Exclusive Architectural Residences</div>
+        <h1 class="cinematic-title">Enter a World<br>Beyond <em>Luxury</em></h1>
+        <p class="cinematic-subtitle">Curated estates designed for visionaries, collectors, and those who seek timeless living.</p>
+        
+        <div class="hero-search-wrap">
+          <div class="search-field">
+            <label>Location</label>
+            <select id="searchLocation">
+              <option value="all">Global Locations</option>
+              <option value="Bel Air, Los Angeles">Bel Air, LA</option>
+              <option value="Malibu, California">Malibu, CA</option>
+              <option value="Manhattan, New York">Manhattan, NY</option>
+              <option value="Geneva, Switzerland">Geneva, CH</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Property Type</label>
+            <select id="searchType">
+              <option value="all">All Residences</option>
+              <option value="Luxury Villa">Villas</option>
+              <option value="Penthouse">Penthouses</option>
+              <option value="Estate">Estates</option>
+              <option value="Modern Mansion">Mansions</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Price Range</label>
+            <select id="searchPrice">
+              <option value="all">Any Budget</option>
+              <option value="0-10000000">$0 - $10M</option>
+              <option value="10000000-20000000">$10M - $20M</option>
+              <option value="20000000-50000000">$20M+</option>
+            </select>
+          </div>
+          <button class="search-btn" onclick="executeSearch()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search</span>
+          </button>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section class="cinematic-layer layer-interior">
+      <div class="cinematic-bg" id="interiorBg" style="background-image: url('assets/cinematic_interior.png')"></div>
+      <div class="cinematic-overlay interior-overlay"></div>
+      
+      <!-- Creative Interactive Hotspots -->
+      <div class="interior-hotspot" style="top: 30%; left: 25%;">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label">Grand Atrium</div>
+      </div>
+      <div class="interior-hotspot" style="top: 45%; left: 70%;">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label">Sunset Terrace</div>
+      </div>
+      <div class="interior-hotspot" style="top: 70%; left: 40%;">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label">Infinity Access</div>
+      </div>
+
+      <div class="interior-welcome" id="interiorContent">
+        <div class="creative-text-mask">
+          <div class="cinematic-label">A Private Sanctuary</div>
+        </div>
+        <div class="creative-text-mask">
+          <h2 class="welcome-title">
+            <span class="word-welcome">WELCOME</span>
+            <span class="word-home">HOME</span>
+          </h2>
+        </div>
+        <div class="creative-text-mask">
+          <p class="cinematic-subtitle">Experience the perfect harmony of avant-garde architecture and serene natural surroundings.</p>
+        </div>
+        <div class="creative-text-mask">
+          <button class="btn-cinematic-primary" onclick="window.location.href='properties.html'">Discover More</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="main-content-flow" style="position: relative; z-index: 20; background: var(--stone); box-shadow: 0 -20px 40px rgba(0,0,0,0.5);">
+
+  <!-- Featured Properties -->
+  <section style="padding:100px 80px;background:var(--stone)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
+      <div>
+        <div class="section-label">Curated Selection</div>
+        <h2 class="section-title" style="margin-bottom:0">Featured <em>Properties</em></h2>
+      </div>
+      <button onclick="window.location.href='properties.html'" style="background:none;border:none;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);cursor:pointer;display:flex;align-items:center;gap:8px;font-family:var(--font-sans)">
+        View All
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="properties-grid">
+      <!-- Card 1 -->
+      <div class="property-card" onclick="window.location.href='detail.html?tour=MErPrrLwvAg'">
+        <div class="property-img">
+          <div class="property-img-placeholder" style="background:url('assets/villa_serena_1777634205747.png') center/cover no-repeat;width:100%;height:100%"></div>
+          <div class="property-badge">Featured</div>
+          <div class="property-favorite" onclick="event.stopPropagation();toggleFavorite('MErPrrLwvAg', this)">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="property-info">
+          <div class="property-type">Luxury Villa</div>
+          <div class="property-name">Villa Serena</div>
+          <div class="property-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Malibu, California
+          </div>
+          <div class="property-price">$8,950,000 <sub>USD</sub></div>
+          <div class="property-specs">
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              5 Beds
+            </div>
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
+              6 Baths
+            </div>
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="1"/></svg>
+              6,800 sqft
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="property-card" onclick="window.location.href='detail.html?tour=hkwLUs7gDe8'">
+        <div class="property-img">
+          <div class="property-img-placeholder" style="background:url('assets/the_pinnacle_1777634220391.png') center/cover no-repeat;width:100%;height:100%"></div>
+          <div class="property-badge" style="background:var(--ink)">New</div>
+          <div class="property-favorite" onclick="event.stopPropagation();toggleFavorite('hkwLUs7gDe8', this)">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="property-info">
+          <div class="property-type">Penthouse</div>
+          <div class="property-name">The Pinnacle</div>
+          <div class="property-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Manhattan, New York
+          </div>
+          <div class="property-price">$12,500,000 <sub>USD</sub></div>
+          <div class="property-specs">
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              4 Beds
+            </div>
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
+              4.5 Baths
+            </div>
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="1"/></svg>
+              4,200 sqft
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="property-card" onclick="window.location.href='detail.html?tour=onEnkRSJLco'">
+        <div class="property-img">
+          <div class="property-img-placeholder" style="background:url('assets/chateau_lumiere_1777634237744.png') center/cover no-repeat;width:100%;height:100%"></div>
+          <div class="property-badge" style="background:var(--gold-dark)">Exclusive</div>
+          <div class="property-favorite" onclick="event.stopPropagation();toggleFavorite('onEnkRSJLco', this)">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="property-info">
+          <div class="property-type">Estate</div>
+          <div class="property-name">Château Lumière</div>
+          <div class="property-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Côte d'Azur, France
+          </div>
+          <div class="property-price">€18,750,000 <sub>EUR</sub></div>
+          <div class="property-specs">
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              8 Beds
+            </div>
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
+              9 Baths
+            </div>
+            <div class="property-spec">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="1"/></svg>
+              14,000 sqft
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Property Deep Dive -->
+  <div class="featured-section">
+    <div class="featured-visual">
+      <div class="featured-visual-art" style="background:url('assets/villa_serena_1777634205747.png') center/cover no-repeat">
+      </div>
+    </div>
+    <div class="featured-content">
+      <div class="section-label">Property Spotlight</div>
+      <h2 class="section-title">Villa <em>Serena</em></h2>
+      <p class="section-subtitle">An architectural masterpiece perched above the Pacific. Where indoor living dissolves into horizon.</p>
+      <div class="featured-feature">
+        <div class="featured-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h4>Infinity Panorama</h4>
+          <p>180° unobstructed Pacific Ocean views from every principal room, with floor-to-ceiling glazing throughout.</p>
+        </div>
+      </div>
+      <div class="featured-feature">
+        <div class="featured-feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Smart Home Integration</h4>
+          <p>Full Crestron automation controlling lighting, climate, security, and entertainment across 14 zones.</p>
+        </div>
+      </div>
+      <div class="featured-feature">
+        <div class="featured-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <h4>Wellness Sanctuary</h4>
+          <p>Private spa, saline infinity pool, wine cellar, cinema room, and a climate-controlled garage for 8 vehicles.</p>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="window.location.href='detail.html'" style="margin-top:8px;align-self:flex-start">View Full Listing</button>
+    </div>
+  </div>
+
+  <!-- Virtual Tour Section -->
+  <div class="tour-section" id="tour-section">
+    <div class="section-label">Immersive Experience</div>
+    <h2 class="section-title">360° Virtual <em>Tours</em></h2>
+    <p class="section-subtitle" style="margin:0 auto 48px">Explore every corner of our finest properties from anywhere in the world. Experience the future of real estate.</p>
+    <div class="tour-iframe-container" style="width:100%;aspect-ratio:21/9;background:#000;border:1px solid rgba(201,169,110,0.2);position:relative;overflow:hidden;border-radius:2px">
+      <!-- Lazy loaded iframe -->
+      <iframe width="100%" height="100%" data-src="https://my.matterport.com/show/?m=MErPrrLwvAg&play=1&qs=1" frameborder="0" allow="xr-spatial-tracking" allowfullscreen style="opacity:0; transition: opacity 1s ease"></iframe>
+      <div class="tour-placeholder" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:12px; letter-spacing:0.1em; pointer-events:none">LOADING IMMERSIVE TOUR...</div>
+    </div>
+  </div>
+
+  <!-- Map Section -->
+  <div class="map-section">
+    <div class="map-header">
+      <div class="section-label">Location Intelligence</div>
+      <h2 class="section-title" style="margin-bottom:0">Properties on <em>the Map</em></h2>
+    </div>
+    <div class="map-canvas" id="liveMap" style="height:600px;background:var(--stone-mid);position:relative;overflow:hidden"></div>
+    
+    <style>
+      .leaflet-container { background: var(--stone); font-family: var(--font-sans); }
+      .leaflet-popup-content-wrapper { border-radius: 2px; padding: 0; overflow: hidden; background: rgba(13,13,13,0.9); backdrop-filter: blur(12px); color: white; border: 1px solid rgba(255,255,255,0.1); animation: popupReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+      @keyframes popupReveal { from { opacity: 0; transform: translateY(10px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      .leaflet-popup-content { margin: 12px 16px; }
+      .leaflet-popup-tip { background: rgba(13,13,13,0.9); }
+      .custom-marker { background: var(--gold); width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 15px var(--gold); transition: all 0.3s ease; }
+      .custom-marker:hover { transform: scale(1.4); box-shadow: 0 0 25px var(--gold); }
+    </style>
+  </div>
+
+  <!-- Amenities -->
+  <section style="padding:100px 80px;background:var(--white)">
+    <div class="section-label">The LuxEstate Standard</div>
+    <h2 class="section-title">Every Property, <em>Exceptional</em></h2>
+    <p class="section-subtitle">Our curatorial process ensures every listing meets the highest standards of design, construction, and location.</p>
+    <div class="amenities-grid">
+      <div class="amenity-card">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <div class="amenity-name">Prime Architecture</div>
+        <div class="amenity-desc">Award-winning designs by the world's most celebrated architects and studios.</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <div class="amenity-name">Smart Technology</div>
+        <div class="amenity-desc">Integrated home automation, security, and climate control systems.</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="amenity-name">Global Locations</div>
+        <div class="amenity-desc">Curated across 40+ of the world's most desirable destinations and cities.</div>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="amenity-name">Vetted Security</div>
+        <div class="amenity-desc">Every property includes comprehensive security systems and gated access.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-section" style="padding: 100px 80px; background: #000; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05)">
+    <div class="stats-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center">
+      <div class="stat-item">
+        <div class="stat-num" data-target="12" style="font-family:var(--font-display); font-size:64px; color:var(--gold); margin-bottom:12px; font-weight:300">0B<span>+</span></div>
+        <div style="width:30px; height:1px; background:var(--gold); margin: 0 auto 20px; opacity:0.5"></div>
+        <div class="stat-label" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-light)">In Property Sales</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="450" style="font-family:var(--font-display); font-size:64px; color:var(--white); margin-bottom:12px; font-weight:300">0<span>+</span></div>
+        <div style="width:30px; height:1px; background:var(--gold); margin: 0 auto 20px; opacity:0.5"></div>
+        <div class="stat-label" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-light)">Exclusive Properties</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="120" style="font-family:var(--font-display); font-size:64px; color:var(--white); margin-bottom:12px; font-weight:300">0<span>+</span></div>
+        <div style="width:30px; height:1px; background:var(--gold); margin: 0 auto 20px; opacity:0.5"></div>
+        <div class="stat-label" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-light)">Elite Agents</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="25" style="font-family:var(--font-display); font-size:64px; color:var(--gold); margin-bottom:12px; font-weight:300">0<span>+</span></div>
+        <div style="width:30px; height:1px; background:var(--gold); margin: 0 auto 20px; opacity:0.5"></div>
+        <div class="stat-label" style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-light)">Countries Covered</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="testimonials-section">
+    <div style="text-align:center;margin-bottom:64px">
+      <div class="section-label" style="justify-content:center"><span></span>Client Stories</div>
+      <h2 class="section-title" style="text-align:center">What Our Clients <em>Say</em></h2>
+    </div>
+    <div class="testimonial-slider">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Working with LuxEstate transformed our understanding of what home could mean. They didn't just find us a property — they found us a life we didn't know we were looking for.</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">AR</div><div><div class="testimonial-name">Alexandra Richardson</div><div class="testimonial-role">CEO, Meridian Capital — New York</div></div></div>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">The 360° virtual tours saved us three international trips. We fell in love with the Côte d'Azur estate from London, and the reality exceeded even those extraordinary visuals.</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">JM</div><div><div class="testimonial-name">James Marchetti</div><div class="testimonial-role">Founder, Marchetti Group — London</div></div></div>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">In 22 years of high-net-worth real estate experience, I have never encountered a platform that combines such impeccable taste with genuine market expertise. LuxEstate is in a class of its own.</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">SC</div><div><div class="testimonial-name">Sophia Chen</div><div class="testimonial-role">Private Wealth Advisor — Hong Kong</div></div></div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="testimonial-dot active" onclick="goTestimonial(0)"></button>
+        <button class="testimonial-dot" onclick="goTestimonial(1)"></button>
+        <button class="testimonial-dot" onclick="goTestimonial(2)"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Preview -->
+  <section style="padding:100px 80px;background:var(--stone)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0">
+      <div>
+        <div class="section-label">The LuxEstate Journal</div>
+        <h2 class="section-title" style="margin-bottom:0">Insights & <em>Perspective</em></h2>
+      </div>
+      <button onclick="window.location.href='blog.html'" style="background:none;border:none;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);cursor:pointer;display:flex;align-items:center;gap:8px;font-family:var(--font-sans)">
+        All Articles
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));gap:48px;margin-top:60px">
+      <!-- Article 1 -->
+      <div class="blog-card" onclick="window.location.href='blog.html'">
+        <div class="blog-card-img" style="aspect-ratio:4/3;overflow:hidden;background:var(--stone-dark)">
+          <img src="assets/journal_1.png" alt="Architecture" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="blog-card-content" style="padding:32px 0">
+          <div class="blog-category">Architecture</div>
+          <h3 class="blog-title" style="font-size:24px;margin-bottom:12px;font-weight:300">Inside the World's Most Celebrated Villas</h3>
+          <p class="blog-excerpt">Explore the boundary-pushing designs that define modern luxury living across the globe.</p>
+          <div class="blog-meta">February 2025 • 8 min read</div>
+        </div>
+      </div>
+      
+      <!-- Article 2 -->
+      <div class="blog-card" onclick="window.location.href='blog.html'">
+        <div class="blog-card-img" style="aspect-ratio:4/3;overflow:hidden;background:var(--stone-dark)">
+          <img src="assets/journal_2.png" alt="Lifestyle" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="blog-card-content" style="padding:32px 0">
+          <div class="blog-category">Lifestyle</div>
+          <h3 class="blog-title" style="font-size:24px;margin-bottom:12px;font-weight:300">The Art of the Infinite Pool</h3>
+          <p class="blog-excerpt">How the world's finest resorts are reimagining the coastal swimming experience.</p>
+          <div class="blog-meta">January 2025 • 5 min read</div>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="blog-card" onclick="window.location.href='blog.html'">
+        <div class="blog-card-img" style="aspect-ratio:4/3;overflow:hidden;background:var(--stone-dark)">
+          <img src="assets/journal_3.png" alt="Materials" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="blog-card-content" style="padding:32px 0">
+          <div class="blog-category">Materials</div>
+          <h3 class="blog-title" style="font-size:24px;margin-bottom:12px;font-weight:300">Carrara Gold: Rare Stone Selection</h3>
+          <p class="blog-excerpt">A deep dive into the quarries supplying the world's most exclusive penthouses.</p>
+          <div class="blog-meta">January 2025 • 6 min read</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div>
+      <div class="section-label">Begin Your Journey</div>
+      <h2 class="section-title">Find Your Perfect <em>Home</em></h2>
+      <p class="section-subtitle">Our expert advisors are ready to guide you through the world's most exceptional properties. Schedule a private consultation today.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:40px;height:40px;border:1px solid var(--stone-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.59 5 2 2 0 0 1 3.56 2.79h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.9"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase">Call us</div>
+            <div style="font-size:15px;font-weight:500;color:var(--ink)">+1 (800) 589-3210</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:40px;height:40px;border:1px solid var(--stone-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase">Email</div>
+            <div style="font-size:15px;font-weight:500;color:var(--ink)">hello@luxestate.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-form">
+      <h3 style="font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--ink);margin-bottom:24px">Schedule a Consultation</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Alexandra"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Richardson"></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="alex@example.com"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+      <div class="form-group"><label>I'm interested in</label>
+        <select><option>Buying a property</option><option>Selling a property</option><option>Investment advice</option><option>Private consultation</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your ideal property..."></textarea></div>
+      <button class="btn-primary" style="width:100%;padding:18px" onclick="handleFormSubmit(this)">Send Enquiry</button>
+    </div>
+  </div>
+  </div> <!-- Close main-content-flow -->
+</div> <!-- Close page-home -->
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Lux<span>Estate</span></div>
+      <p class="footer-desc">The world's most exclusive real estate platform, connecting extraordinary properties with extraordinary people since 2001.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nagesh___24/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nageshwar-kumar-gupta-833b4a1b7/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://x.com/xnageshwargupta" target="_blank" aria-label="Twitter/X"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Properties</h4>
+      <a href="properties.html">All Listings</a>
+      <a href="properties.html">New Development</a>
+      <a href="properties.html">Off-Market</a>
+      <a href="properties.html">Investment</a>
+      <a href="properties.html">International</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 LuxEstate International. All rights reserved.</p>
+    <p class="footer-copy" style="color:rgba(255,255,255,0.15)">Regulated by the National Association of Realtors</p>
+  </div>
+</footer>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

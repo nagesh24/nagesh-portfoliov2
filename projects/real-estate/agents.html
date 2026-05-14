@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agents — LuxEstate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav" class="nav-light">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="agents.html">Agents</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="nav-cta" onclick="window.location.href='contact.html'">Inquire</button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="display:none;position:fixed;top:76px;left:0;right:0;background:rgba(13,13,13,0.97);backdrop-filter:blur(16px);z-index:999;padding:24px 32px;border-bottom:1px solid rgba(255,255,255,0.05)">
+  <a href="index.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Home</a>
+  <a href="properties.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Properties</a>
+  <a href="agents.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Agents</a>
+  <a href="about.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">About</a>
+  <a href="contact.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display)">Contact</a>
+</div>
+
+<!-- ════════════════════════════════════
+     AGENTS PAGE
+════════════════════════════════════ -->
+<div id="page-agents" class="page active">
+  <div style="height:76px"></div>
+  <section style="background:var(--ink);padding:80px 80px 60px">
+    <div class="section-label" style="color:var(--gold)">Our Team</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(40px,5vw,64px);font-weight:300;color:var(--white);line-height:1.1">Elite <em style="font-style:italic;color:var(--gold-light)">Advisors</em></h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.4);margin-top:12px;max-width:520px">Every LuxEstate agent is a specialist, not a generalist. We handpick advisors who bring deep market knowledge and irreplaceable personal networks.</p>
+  </section>
+  <section style="padding:80px;background:var(--stone)">
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="agent-photo">
+          <img src="assets/agent_sarah.png" alt="Sarah Laurent" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="agent-overlay"></div>
+          <div class="agent-social">
+            <a href="https://linkedin.com/in/sarah-laurent-lux" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="tel:+18005893211" aria-label="Call Sarah">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="agent-info"><div class="agent-name">Sarah Laurent</div><div class="agent-title">Senior Property Advisor</div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-num">148</div><div class="agent-stat-label">Sales</div></div><div class="agent-stat"><div class="agent-stat-num">$2.1B</div><div class="agent-stat-label">Volume</div></div><div class="agent-stat"><div class="agent-stat-num">12yr</div><div class="agent-stat-label">Experience</div></div></div></div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-photo">
+          <img src="assets/agent_marcus.png" alt="Marcus Kim" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="agent-overlay"></div>
+          <div class="agent-social">
+            <a href="https://linkedin.com/in/marcus-kim-lux" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="tel:+18005893212" aria-label="Call Marcus">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="agent-info"><div class="agent-name">Marcus Kim</div><div class="agent-title">International Specialist</div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-num">93</div><div class="agent-stat-label">Sales</div></div><div class="agent-stat"><div class="agent-stat-num">$980M</div><div class="agent-stat-label">Volume</div></div><div class="agent-stat"><div class="agent-stat-num">8yr</div><div class="agent-stat-label">Experience</div></div></div></div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-photo">
+          <img src="assets/agent_isabelle.png" alt="Isabelle Rossi" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="agent-overlay"></div>
+          <div class="agent-social">
+            <a href="https://linkedin.com/in/isabelle-rossi-lux" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="tel:+18005893213" aria-label="Call Isabelle">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="agent-info"><div class="agent-name">Isabelle Rossi</div><div class="agent-title">European Markets</div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-num">211</div><div class="agent-stat-label">Sales</div></div><div class="agent-stat"><div class="agent-stat-num">$3.4B</div><div class="agent-stat-label">Volume</div></div><div class="agent-stat"><div class="agent-stat-num">18yr</div><div class="agent-stat-label">Experience</div></div></div></div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-photo">
+          <img src="assets/agent_james.png" alt="James Thornton" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="agent-overlay"></div>
+          <div class="agent-social">
+            <a href="https://linkedin.com/in/james-thornton-lux" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="tel:+18005893214" aria-label="Call James">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="agent-info"><div class="agent-name">James Thornton</div><div class="agent-title">Architectural Specialist</div><div class="agent-stats"><div class="agent-stat"><div class="agent-stat-num">76</div><div class="agent-stat-label">Sales</div></div><div class="agent-stat"><div class="agent-stat-num">$890M</div><div class="agent-stat-label">Volume</div></div><div class="agent-stat"><div class="agent-stat-num">6yr</div><div class="agent-stat-label">Experience</div></div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Lux<span>Estate</span></div>
+      <p class="footer-desc">The world's most exclusive real estate platform, connecting extraordinary properties with extraordinary people since 2001.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nagesh___24/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nageshwar-kumar-gupta-833b4a1b7/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://x.com/xnageshwargupta" target="_blank" aria-label="Twitter/X"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Properties</h4>
+      <a href="properties.html">All Listings</a>
+      <a href="properties.html">New Development</a>
+      <a href="properties.html">Off-Market</a>
+      <a href="properties.html">Investment</a>
+      <a href="properties.html">International</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 LuxEstate International. All rights reserved.</p>
+    <p class="footer-copy" style="color:rgba(255,255,255,0.15)">Regulated by the National Association of Realtors</p>
+  </div>
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

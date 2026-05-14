@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neurons International School — Professional dark dashboard design system.
+   All colors HSL. Use semantic tokens, never raw colors in components. */
+
+@layer base {
+  :root {
+    /* Dark sidebar / light content split. */
+    --background: 210 25% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 158 64% 42%;            /* emerald */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 158 70% 55%;
+
+    --secondary: 222 47% 14%;          /* navy ink */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 16% 42%;
+
+    --accent: 199 89% 48%;             /* sky for accents */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 215 25% 88%;
+    --input: 215 25% 90%;
+    --ring: 158 64% 42%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar (dark navy) */
+    --sidebar-background: 222 47% 9%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-primary: 158 64% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 40% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 35% 16%;
+    --sidebar-ring: 158 64% 42%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    --gradient-sidebar: linear-gradient(180deg, hsl(222 47% 10%) 0%, hsl(222 47% 7%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 30% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(222 47% 18%) 50%, hsl(158 64% 25%) 100%);
+
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+    --shadow-md: 0 4px 14px -2px hsl(222 47% 11% / 0.08);
+    --shadow-lg: 0 18px 40px -10px hsl(222 47% 11% / 0.18);
+    --shadow-glow: 0 0 32px hsl(var(--primary) / 0.3);
+
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 158 64% 48%;
+    --primary-foreground: 222 47% 9%;
+    --secondary: 222 40% 16%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 222 40% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 199 89% 55%;
+    --accent-foreground: 222 47% 9%;
+    --border: 222 35% 18%;
+    --input: 222 35% 18%;
+    --ring: 158 64% 48%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 215 20% 70%;
+    --sidebar-accent: 222 40% 12%;
+    --sidebar-border: 222 35% 14%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { height: 100%; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1, h2, h3, h4 { font-family: 'Sora', 'Inter', sans-serif; letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .gradient-primary { background-image: var(--gradient-primary); }
+  .gradient-sidebar { background-image: var(--gradient-sidebar); }
+  .gradient-hero    { background-image: var(--gradient-hero); }
+  .shadow-elevated  { box-shadow: var(--shadow-lg); }
+  .shadow-soft      { box-shadow: var(--shadow-md); }
+  .shadow-glow      { box-shadow: var(--shadow-glow); }
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

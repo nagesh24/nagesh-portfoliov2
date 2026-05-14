@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Favorites — LuxEstate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="mainNav" class="nav-light">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="favorites.html" class="active" style="display:flex;align-items:center;gap:6px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)" stroke="var(--gold)" stroke-width="2" style="margin-bottom:1px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Favorites
+      <span id="favCount" style="font-size:10px;background:var(--gold);color:white;padding:1px 5px;border-radius:10px;margin-left:2px">0</span>
+    </a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section style="padding:160px 80px 100px;background:var(--stone);min-height:80vh">
+  <div style="margin-bottom:60px">
+    <div class="section-label">Your Private Collection</div>
+    <h1 class="section-title">Saved <em>Properties</em></h1>
+    <p class="section-subtitle">Your personally curated selection of world-class estates.</p>
+  </div>
+
+  <div id="favoritesGrid" class="properties-grid">
+    <!-- Favorites will be injected here -->
+  </div>
+
+  <div id="emptyState" style="display:none;text-align:center;padding:100px 0">
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--muted-light)" stroke-width="1" style="margin-bottom:24px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <h3 style="font-family:var(--font-display);font-size:24px;color:var(--muted)">No favorites yet</h3>
+    <p style="color:var(--muted-light);margin-top:12px">Explore our collection and click the heart icon to save properties.</p>
+    <button onclick="window.location.href='properties.html'" class="btn-primary" style="margin-top:32px">Explore Estates</button>
+  </div>
+</section>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('favoritesGrid');
+    const empty = document.getElementById('emptyState');
+    const favIds = JSON.parse(localStorage.getItem('luxFavorites')) || [];
+    
+    if (favIds.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+        return;
+    }
+
+    const favorites = propertyData.filter(p => favIds.includes(p.id));
+    
+    grid.innerHTML = favorites.map(p => `
+      <div class="property-card" onclick="window.location.href='detail.html?tour=${p.id}'">
+        <div class="property-img">
+          <div class="property-img-placeholder" style="background:url('${p.image}') center/cover no-repeat;width:100%;height:100%"></div>
+          <div class="property-favorite active" onclick="event.stopPropagation(); toggleFavorite('${p.id}', this); window.location.reload();">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="property-info">
+          <div class="property-type">${p.type}</div>
+          <div class="property-name">${p.title}</div>
+          <div class="property-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${p.location}
+          </div>
+          <div class="property-price">$${p.price.toLocaleString()} <sub>USD</sub></div>
+          <div class="property-specs">
+            <span>${p.beds} Beds</span> • <span>${p.baths} Baths</span> • <span>${p.sqft.toLocaleString()} sqft</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties — LuxEstate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav" class="nav-light">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html" class="active">Properties</a>
+    <a href="agents.html">Agents</a>
+    <a href="about.html">About</a>
+    <a href="favorites.html" style="display:flex;align-items:center;gap:6px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)" stroke="var(--gold)" stroke-width="2" style="margin-bottom:1px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Favorites
+      <span id="favCount" style="font-size:10px;background:var(--gold);color:white;padding:1px 5px;border-radius:10px;margin-left:2px;display:none">0</span>
+    </a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="nav-cta" onclick="window.location.href='contact.html'">Inquire</button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     PROPERTIES PAGE
+════════════════════════════════════ -->
+<div id="page-properties" class="page active">
+  <div style="height:76px"></div>
+  <div style="background:var(--ink);padding:60px 80px">
+    <div class="section-label" style="color:var(--gold)">Our Portfolio</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(40px,5vw,64px);font-weight:300;color:var(--white);line-height:1.1">Exceptional <em style="font-style:italic;color:var(--gold-light)">Properties</em></h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.4);margin-top:12px">Discover our curated collection of the world's finest homes</p>
+  </div>
+
+  <!-- Grid -->
+  <div style="padding:40px 80px;background:var(--stone)">
+    <div id="propertyStats" style="margin-bottom:24px;font-size:13px;color:var(--muted)">Showing all properties</div>
+    <div class="properties-grid" id="propertiesGrid" style="background:transparent;gap:24px">
+      <!-- Properties will be injected here -->
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Lux<span>Estate</span></div>
+      <p class="footer-desc">The world's most exclusive real estate platform, connecting extraordinary properties with extraordinary people since 2001.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nagesh___24/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nageshwar-kumar-gupta-833b4a1b7/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://x.com/xnageshwargupta" target="_blank" aria-label="Twitter/X"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 LuxEstate International. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+  function renderProperties() {
+      const grid = document.getElementById('propertiesGrid');
+      const stats = document.getElementById('propertyStats');
+      if (!grid) return;
+
+      const params = new URLSearchParams(window.location.search);
+      const filterLoc = params.get('location');
+      const filterType = params.get('type');
+      const filterPrice = params.get('price');
+
+      let filtered = propertyData;
+
+      if (filterLoc) {
+          filtered = filtered.filter(p => p.location.includes(filterLoc));
+      }
+      if (filterType) {
+          filtered = filtered.filter(p => p.type === filterType);
+      }
+      if (filterPrice) {
+          const [min, max] = filterPrice.split('-').map(Number);
+          filtered = filtered.filter(p => p.price >= min && p.price <= max);
+      }
+
+      if (stats) {
+          stats.textContent = filtered.length > 0 
+            ? `Showing ${filtered.length} exceptional properties` 
+            : "No properties match your refined search criteria.";
+      }
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="property-card" onclick="window.location.href='detail.html?tour=${p.id}'" style="background:var(--white);border:1px solid var(--stone-mid)">
+          <div class="property-img">
+            <div class="property-img-placeholder" style="background:url('${p.image}') center/cover no-repeat;width:100%;height:100%"></div>
+            <div class="property-badge">${p.featured ? 'Featured' : 'Available'}</div>
+            <div class="property-favorite" onclick="event.stopPropagation();toggleFavorite('${p.id}', this)">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+          </div>
+          <div class="property-info">
+            <div class="property-type">${p.type}</div>
+            <div class="property-name">${p.title}</div>
+            <div class="property-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${p.location}
+            </div>
+            <div class="property-price">$${p.price.toLocaleString()} <sub>USD</sub></div>
+            <div class="property-specs">
+              <div class="property-spec">${p.beds} Beds</div>
+              <div class="property-spec">${p.baths} Baths</div>
+              <div class="property-spec">${p.sqft.toLocaleString()} sqft</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      
+      const favorites = JSON.parse(localStorage.getItem('luxFavorites')) || [];
+      document.querySelectorAll('.property-favorite').forEach(btn => {
+          const id = btn.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+          if (id && favorites.includes(id)) {
+              btn.classList.add('active');
+          }
+      });
+  }
+  document.addEventListener('DOMContentLoaded', renderProperties);
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — LuxEstate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav" class="nav-light">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="agents.html">Agents</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="nav-cta" onclick="window.location.href='contact.html'">Inquire</button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="display:none;position:fixed;top:76px;left:0;right:0;background:rgba(13,13,13,0.97);backdrop-filter:blur(16px);z-index:999;padding:24px 32px;border-bottom:1px solid rgba(255,255,255,0.05)">
+  <a href="index.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Home</a>
+  <a href="properties.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Properties</a>
+  <a href="agents.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Agents</a>
+  <a href="about.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">About</a>
+  <a href="contact.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display)">Contact</a>
+</div>
+
+<!-- ════════════════════════════════════
+     BLOG PAGE
+════════════════════════════════════ -->
+<div id="page-blog" class="page active">
+  <div style="height:76px"></div>
+  <section style="background:var(--stone-mid);padding:80px 80px">
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <div class="section-label" style="justify-content:center">The LuxEstate Journal</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(40px,5vw,64px);font-weight:300;color:var(--ink);line-height:1.1;margin-bottom:16px">Market Insights &<br><em style="font-style:italic;color:var(--gold-dark)">Architecture</em></h1>
+      <p style="font-size:16px;color:var(--muted)">Expert perspectives on the global luxury property market, interior design, and the lifestyle of extraordinary living.</p>
+    </div>
+  </section>
+  <section style="padding:80px;background:var(--stone)">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+      <div class="blog-card featured" style="background:var(--white)" onclick="window.location.href='journal-detail.html'">
+        <div class="blog-card-img">
+          <img src="assets/journal_market.png" alt="Market Insight" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-category">Market Insight</div>
+          <h3 class="blog-title">The Ultra-Prime Property Market in 2025: What Global Wealth is Buying Now</h3>
+          <p class="blog-excerpt">From Dubai's sky-high penthouses to the quiet grandeur of the English countryside, we examine where the world's most discerning buyers are placing their capital in an evolving global landscape.</p>
+          <div class="blog-meta"><span>March 2025</span><span style="color:var(--stone-dark)">—</span><span>8 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card featured" style="background:var(--white)">
+        <div class="blog-card-img">
+          <img src="assets/journal_design.png" alt="Design" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-category">Design</div>
+          <h3 class="blog-title">The New Minimalism: Warmth and Texture in Modern Mansions</h3>
+          <p class="blog-excerpt">Sterile white boxes are out. The new era of luxury minimalism embraces natural materials, earthy palettes, and tactile surfaces that create a sense of sanctuary and grounding.</p>
+          <div class="blog-meta"><span>March 2025</span><span style="color:var(--stone-dark)">—</span><span>6 min read</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="blog-card" style="background:var(--white)">
+        <div class="blog-card-img">
+          <img src="assets/journal_architecture.png" alt="Architecture" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;display:block">
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-category">Architecture</div>
+          <h3 class="blog-title">Designing for the Extraordinary: Inside the World's Most Celebrated Villas</h3>
+          <div class="blog-meta"><span>February 2025</span><span style="color:var(--stone-dark)">—</span><span>5 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" style="background:var(--white)">
+        <div class="blog-card-img">
+          <img src="assets/journal_sustainability.png" alt="Sustainability" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;display:block">
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-category">Sustainability</div>
+          <h3 class="blog-title">The Rise of Biophilic Design in Luxury Real Estate</h3>
+          <div class="blog-meta"><span>January 2025</span><span style="color:var(--stone-dark)">—</span><span>6 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" style="background:var(--white)">
+        <div class="blog-card-img">
+          <img src="assets/journal_lifestyle.png" alt="Lifestyle" style="width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;display:block">
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-category">Lifestyle</div>
+          <h3 class="blog-title">Curating a World-Class Wine Cellar: A Collector's Guide</h3>
+          <div class="blog-meta"><span>January 2025</span><span style="color:var(--stone-dark)">—</span><span>4 min read</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Lux<span>Estate</span></div>
+      <p class="footer-desc">The world's most exclusive real estate platform, connecting extraordinary properties with extraordinary people since 2001.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nagesh___24/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nageshwar-kumar-gupta-833b4a1b7/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://x.com/xnageshwargupta" target="_blank" aria-label="Twitter/X"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Properties</h4>
+      <a href="properties.html">All Listings</a>
+      <a href="properties.html">New Development</a>
+      <a href="properties.html">Off-Market</a>
+      <a href="properties.html">Investment</a>
+      <a href="properties.html">International</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 LuxEstate International. All rights reserved.</p>
+    <p class="footer-copy" style="color:rgba(255,255,255,0.15)">Regulated by the National Association of Realtors</p>
+  </div>
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

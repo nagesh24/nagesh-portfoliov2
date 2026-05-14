@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Serena — LuxEstate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav" class="nav-light">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="agents.html">Agents</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="nav-cta" onclick="window.location.href='contact.html'">Inquire</button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="display:none;position:fixed;top:76px;left:0;right:0;background:rgba(13,13,13,0.97);backdrop-filter:blur(16px);z-index:999;padding:24px 32px;border-bottom:1px solid rgba(255,255,255,0.05)">
+  <a href="index.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Home</a>
+  <a href="properties.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Properties</a>
+  <a href="agents.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">Agents</a>
+  <a href="about.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display);border-bottom:1px solid rgba(255,255,255,0.05)">About</a>
+  <a href="contact.html" style="display:block;padding:12px 0;color:rgba(255,255,255,0.7);text-decoration:none;font-size:18px;font-family:var(--font-display)">Contact</a>
+</div>
+
+<!-- ════════════════════════════════════
+     PROPERTY DETAIL PAGE
+════════════════════════════════════ -->
+<div id="page-detail" class="page active">
+  <div style="height:76px"></div>
+  <div class="detail-hero" style="background:url('assets/villa_serena_1777634205747.png') center/cover no-repeat">
+    <div style="position:relative;z-index:2;padding:48px 80px;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 100%);width:100%">
+      <div class="property-badge" style="margin-bottom:16px">Featured Property</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:8px">Villa Serena</h1>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6)">24601 Pacific Coast Highway, Malibu, California 90265</p>
+    </div>
+    <div class="detail-gallery-nav">
+      <div class="detail-gallery-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+      <div class="detail-gallery-btn"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="detail-gallery-btn" style="background:var(--gold);border-color:var(--gold)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="detail-info-bar">
+    <div>
+      <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Asking Price</div>
+      <div class="detail-price">$8,950,000</div>
+    </div>
+    <div style="display:flex;gap:32px;align-items:center">
+      <div style="text-align:center"><div style="font-family:var(--font-display);font-size:24px;font-weight:300;color:var(--ink)">5</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em">Bedrooms</div></div>
+      <div style="width:1px;height:40px;background:var(--stone-mid)"></div>
+      <div style="text-align:center"><div style="font-family:var(--font-display);font-size:24px;font-weight:300;color:var(--ink)">6</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em">Bathrooms</div></div>
+      <div style="width:1px;height:40px;background:var(--stone-mid)"></div>
+      <div style="text-align:center"><div style="font-family:var(--font-display);font-size:24px;font-weight:300;color:var(--ink)">6,800</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em">Square Feet</div></div>
+      <div style="width:1px;height:40px;background:var(--stone-mid)"></div>
+      <div style="text-align:center"><div style="font-family:var(--font-display);font-size:24px;font-weight:300;color:var(--ink)">2.4</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em">Acres</div></div>
+    </div>
+    <div class="detail-actions-bar">
+      <button style="padding:12px 24px;background:transparent;border:1px solid var(--stone-dark);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;gap:8px;color:var(--ink)" onclick="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Save
+      </button>
+      <button style="padding:12px 24px;background:transparent;border:1px solid var(--stone-dark);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);display:flex;align-items:center;gap:8px;color:var(--ink)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share
+      </button>
+      <button class="btn-primary" onclick="window.location.href='contact.html'">Schedule Viewing</button>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-main">
+      <!-- Description -->
+      <div style="margin-bottom:48px">
+        <div class="section-label" style="font-size:10px">About This Property</div>
+        <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:16px">Villa Serena represents the pinnacle of California coastal living. Perched above the Pacific with commanding 180° ocean views, this architectural masterpiece by Olson Kundig was conceived as a dialogue between the elemental landscape and refined domesticity.</p>
+        <p style="font-size:16px;color:var(--muted);line-height:1.8">The property features five en-suite bedrooms, each with floor-to-ceiling glazing, a chef's kitchen appointed with La Cornue range and Calacatta marble surfaces, a 65-foot infinity pool, private spa, and direct beach access via a funicular carved into the cliff face.</p>
+      </div>
+      <!-- Amenities -->
+      <div style="margin-bottom:48px">
+        <div class="section-label" style="font-size:10px">Property Features</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Infinity pool & spa</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Beach funicular</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">8-car climate garage</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Crestron automation</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Private cinema room</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">2,000-bottle wine cellar</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Guest cottage (2BR)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Solar + backup power</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--stone-mid)">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0"></div>
+            <span style="font-size:13px;color:var(--ink)">Private helipad</span>
+          </div>
+        </div>
+      </div>
+      <!-- Floor Plan -->
+      <div>
+        <div class="section-label" style="font-size:10px">Floor Plans</div>
+        <div style="background:var(--stone);padding:40px;text-align:center;border:1px solid var(--stone-mid)">
+          <svg width="100%" viewBox="0 0 600 400" style="max-height:400px">
+            <g stroke="#8A857E" fill="none" stroke-width="1.5">
+              <rect x="50" y="30" width="500" height="340" stroke="#3A3530" stroke-width="2"/>
+              <rect x="50" y="30" width="180" height="140" stroke="#5A5550"/>
+              <rect x="230" y="30" width="160" height="140" stroke="#5A5550"/>
+              <rect x="390" y="30" width="160" height="140" stroke="#5A5550"/>
+              <rect x="50" y="170" width="500" height="100" stroke="#5A5550"/>
+              <rect x="50" y="270" width="150" height="100" stroke="#5A5550"/>
+              <rect x="200" y="270" width="200" height="100" stroke="#5A5550"/>
+              <rect x="400" y="270" width="150" height="100" stroke="#5A5550"/>
+              <path d="M140 170 Q160 150 140 150" stroke="#9A9585" stroke-width="1" fill="none"/>
+              <path d="M300 270 Q320 250 300 250" stroke="#9A9585" stroke-width="1" fill="none"/>
+              <line x1="50" y1="60" x2="50" y2="100" stroke="#C9A96E" stroke-width="3"/>
+              <line x1="550" y1="60" x2="550" y2="100" stroke="#C9A96E" stroke-width="3"/>
+              <line x1="50" y1="300" x2="50" y2="340" stroke="#C9A96E" stroke-width="3"/>
+              <line x1="100" y1="30" x2="200" y2="30" stroke="#C9A96E" stroke-width="3"/>
+              <rect x="65" y="45" width="60" height="40" rx="2" stroke="#ADA89F" stroke-width="0.8"/>
+              <circle cx="310" cy="80" r="25" stroke="#ADA89F" stroke-width="0.8"/>
+              <rect x="420" y="45" width="110" height="70" rx="2" stroke="#ADA89F" stroke-width="0.8"/>
+              <rect x="70" y="290" width="100" height="60" rx="2" stroke="#ADA89F" stroke-width="0.8"/>
+              <rect x="220" y="285" width="160" height="70" rx="2" stroke="#ADA89F" stroke-width="0.8"/>
+            </g>
+            <text x="140" y="105" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Living Room</text>
+            <text x="310" y="110" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Dining</text>
+            <text x="470" y="95" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Master Suite</text>
+            <text x="300" y="225" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Grand Hallway</text>
+            <text x="125" y="325" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Bedroom 2</text>
+            <text x="300" y="325" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Kitchen</text>
+            <text x="475" y="325" text-anchor="middle" fill="#6B6560" font-family="Cormorant Garamond,Georgia,serif" font-size="11" font-style="italic">Bedroom 3</text>
+            <text x="300" y="395" text-anchor="middle" fill="#C9A96E" font-family="Cormorant Garamond,Georgia,serif" font-size="12" font-style="italic" opacity="0.8">Ground Floor — 3,400 sq ft</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <div class="detail-sidebar">
+      <div style="background:var(--white);padding:32px;margin-bottom:20px;border:1px solid var(--stone-mid)">
+        <div style="display:flex;gap:12px;margin-bottom:24px;align-items:center">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;color:var(--white)">SL</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--ink)">Sarah Laurent</div>
+            <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Senior Agent</div>
+            <div style="font-size:12px;color:var(--muted)">Lic. #DRE 01234567</div>
+          </div>
+        </div>
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+        <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="I'm interested in Villa Serena..." style="height:80px"></textarea></div>
+        <button class="btn-primary" style="width:100%" onclick="handleFormSubmit(this)">Request Private Viewing</button>
+        <button style="width:100%;padding:14px;background:transparent;border:1px solid var(--stone-dark);margin-top:8px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:var(--font-sans);color:var(--ink);transition:all var(--transition)" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--stone-dark)';this.style.color='var(--ink)'" onclick="openTourModal()">Launch Virtual Tour</button>
+      </div>
+      <div style="background:var(--white);padding:24px;border:1px solid var(--stone-mid)">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Property Details</div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--stone)"><span style="font-size:13px;color:var(--muted)">Property Type</span><span style="font-size:13px;font-weight:500;color:var(--ink)">Luxury Villa</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--stone)"><span style="font-size:13px;color:var(--muted)">Year Built</span><span style="font-size:13px;font-weight:500;color:var(--ink)">2019</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--stone)"><span style="font-size:13px;color:var(--muted)">Lot Size</span><span style="font-size:13px;font-weight:500;color:var(--ink)">2.4 acres</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--stone)"><span style="font-size:13px;color:var(--muted)">Parking</span><span style="font-size:13px;font-weight:500;color:var(--ink)">8 Car Garage</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--stone)"><span style="font-size:13px;color:var(--muted)">Pool</span><span style="font-size:13px;font-weight:500;color:var(--ink)">Infinity + Spa</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0"><span style="font-size:13px;color:var(--muted)">Price/sqft</span><span style="font-size:13px;font-weight:500;color:var(--ink)">$1,316</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Lux<span>Estate</span></div>
+      <p class="footer-desc">The world's most exclusive real estate platform, connecting extraordinary properties with extraordinary people since 2001.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nagesh___24/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nageshwar-kumar-gupta-833b4a1b7/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://x.com/xnageshwargupta" target="_blank" aria-label="Twitter/X"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Properties</h4>
+      <a href="properties.html">All Listings</a>
+      <a href="properties.html">New Development</a>
+      <a href="properties.html">Off-Market</a>
+      <a href="properties.html">Investment</a>
+      <a href="properties.html">International</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 LuxEstate International. All rights reserved.</p>
+    <p class="footer-copy" style="color:rgba(255,255,255,0.15)">Regulated by the National Association of Realtors</p>
+  </div>
+</footer>
+
+
+
+<!-- Virtual Tour Modal -->
+<div id="tourModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s ease">
+  <button onclick="closeTourModal()" style="position:absolute;top:32px;right:40px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:48px;font-weight:300;cursor:pointer;transition:color 0.3s;line-height:1" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&times;</button>
+  <div style="width:90%;height:85%;max-width:1400px;background:#000;border:1px solid rgba(201,169,110,0.2);position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.8);animation:modalZoomIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards">
+    <!-- Embedded Matterport 3D Tour -->
+    <iframe width="100%" height="100%" src="https://my.matterport.com/show/?m=SxQL3iGyoDo&play=1&qs=1" frameborder="0" allow="xr-spatial-tracking" allowfullscreen></iframe>
+  </div>
+</div>
+<style>
+@keyframes modalZoomIn {
+  from { opacity: 0; transform: scale(0.96) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+</style>
+
+<script>
+const propertyData = {
+  'MErPrrLwvAg': {
+    name: 'Villa Serena',
+    location: 'Malibu, California',
+    address: '24601 Pacific Coast Highway, Malibu, California 90265',
+    price: '$8,950,000',
+    beds: '5', baths: '6', sqft: '6,800', acres: '2.4',
+    img: 'assets/villa_serena_1777634205747.png',
+    desc: 'Villa Serena represents the pinnacle of California coastal living. Perched above the Pacific with commanding 180° ocean views, this architectural masterpiece was conceived as a dialogue between the elemental landscape and refined domesticity.'
+  },
+  'hkwLUs7gDe8': {
+    name: 'The Pinnacle',
+    location: 'Manhattan, New York',
+    address: '432 Park Avenue, Penthouse 88, New York, NY 10022',
+    price: '$12,500,000',
+    beds: '4', baths: '4.5', sqft: '4,200', acres: 'N/A',
+    img: 'assets/the_pinnacle_1777634220391.png',
+    desc: 'Rising above the Manhattan skyline, The Pinnacle offers an unparalleled urban sanctuary. This duplex penthouse features 12-foot ceilings and wrap-around glazing providing 360° views of Central Park and the Atlantic beyond.'
+  },
+  'onEnkRSJLco': {
+    name: 'Château Lumière',
+    location: "Côte d'Azur, France",
+    address: '12 Avenue du Cap, 06600 Antibes, France',
+    price: '€18,750,000',
+    beds: '8', baths: '9', sqft: '14,000', acres: '4.2',
+    img: 'assets/chateau_lumiere_1777634237744.png',
+    desc: 'A historic jewel of the French Riviera, Château Lumière combines Belle Époque grandeur with contemporary luxury. Surrounded by manicured gardens and olive groves, the estate offers total privacy and direct Mediterranean access.'
+  },
+  'uVZJZFT3jze': {
+    name: 'Azure Heights',
+    location: 'Portland, Oregon',
+    address: '7721 NW Skyline Blvd, Portland, OR 97229',
+    price: '$6,200,000',
+    beds: '3', baths: '3.5', sqft: '3,200', acres: '1.8',
+    img: 'assets/modern_glass_villa_1777636244114.png',
+    desc: 'Azure Heights is a triumph of modern minimalism, perfectly integrated into the lush forest canopy. The steel and glass structure disappears into its surroundings, offering a meditative retreat from the city below.'
+  },
+  'cc1xE17XcJy': {
+    name: 'The Haven',
+    location: 'Bora Bora, French Polynesia',
+    address: 'Motu Piti Aau, Bora Bora 98730',
+    price: '$14,800,000',
+    beds: '6', baths: '7', sqft: '8,100', acres: '12.5',
+    img: 'assets/tropical_island_estate_1777636279525.png',
+    desc: 'Situated on a private motu, The Haven is the ultimate tropical sanctuary. Over-water bungalows and open-air pavilions create a seamless indoor-outdoor living experience amidst the worlds most famous turquoise lagoon.'
+  },
+  '2nGHmCYLXGo': {
+    name: 'Emerald Manor',
+    location: 'Cotswolds, England',
+    address: 'Burford Road, Stow-on-the-Wold, Gloucestershire GL54',
+    price: '£9,250,000',
+    beds: '7', baths: '8', sqft: '11,200', acres: '85',
+    img: 'assets/historic_manor_1777636263361.png',
+    desc: 'Emerald Manor is a masterfully restored 17th-century estate set within the rolling hills of the Cotswolds. The property balances historic charm with modern amenities, including a world-class equestrian facility.'
+  },
+  '7gjJk4p3W62': {
+    name: 'Alpine Peak',
+    location: 'Aspen, Colorado',
+    address: '800 W Red Mountain Rd, Aspen, CO 81611',
+    price: '$11,400,000',
+    beds: '5', baths: '5.5', sqft: '5,600', acres: '3.1',
+    img: 'assets/aspen_mountain_chalet_1777636296561.png',
+    desc: 'An architectural tribute to the Rocky Mountains, Alpine Peak offers ski-in/ski-out access and panoramic valley views. The home features reclaimed timber, native stone, and a thermal pool heated by geothermal energy.'
+  }
+};
+
+function initTour() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tourId = urlParams.get('tour') || 'SxQL3iGyoDo';
+  
+  // Update Iframe
+  const iframe = document.querySelector('#tourModal iframe');
+  if (iframe) {
+    iframe.src = `https://my.matterport.com/show/?m=${tourId}&play=1&qs=1`;
+  }
+
+  // Update Page Content
+  const data = propertyData[tourId];
+  if (data) {
+    document.title = `${data.name} — LuxEstate`;
+    
+    const hero = document.querySelector('.detail-hero');
+    if (hero) hero.style.backgroundImage = `url('${data.img}')`;
+    
+    const nameEl = document.querySelector('.detail-hero h1');
+    if (nameEl) nameEl.textContent = data.name;
+    
+    const addrEl = document.querySelector('.detail-hero p');
+    if (addrEl) addrEl.textContent = data.address;
+    
+    const priceEl = document.querySelector('.detail-price');
+    if (priceEl) priceEl.textContent = data.price;
+    
+    const specs = document.querySelectorAll('.detail-info-bar .detail-price + div > div, .detail-info-bar div + div div div:first-child');
+    // Using simple selectors for simplicity
+    const specContainers = document.querySelectorAll('.detail-info-bar div[style*="text-align:center"]');
+    if (specContainers.length >= 4) {
+      specContainers[0].querySelector('div:first-child').textContent = data.beds;
+      specContainers[1].querySelector('div:first-child').textContent = data.baths;
+      specContainers[2].querySelector('div:first-child').textContent = data.sqft;
+      specContainers[3].querySelector('div:first-child').textContent = data.acres;
+    }
+    
+    const descEl = document.querySelector('.detail-main p');
+    if (descEl) descEl.textContent = data.desc;
+  }
+}
+
+function openTourModal() {
+  initTour();
+  const modal = document.getElementById('tourModal');
+  modal.style.display = 'flex';
+  setTimeout(() => modal.style.opacity = '1', 10);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTourModal() {
+  const modal = document.getElementById('tourModal');
+  modal.style.opacity = '0';
+  setTimeout(() => {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }, 400);
+}
+
+window.addEventListener('DOMContentLoaded', initTour);
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

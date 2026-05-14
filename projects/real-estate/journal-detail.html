@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ultra-Prime Property Market in 2025 — LuxEstate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --article-max-width: 800px;
+  }
+  
+  .article-hero {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+  }
+  
+  .article-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(13,13,13,0.6), rgba(13,13,13,0.6)), url('assets/journal_market.png') center/cover no-repeat;
+    z-index: -1;
+    transform: scale(1.1);
+  }
+  
+  .article-header {
+    max-width: 900px;
+    padding: 0 40px;
+  }
+  
+  .article-category {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+  
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.05em;
+  }
+  
+  .article-content-wrap {
+    background: var(--white);
+    padding: 100px 0;
+    position: relative;
+    z-index: 2;
+    margin-top: -80px;
+  }
+  
+  .article-body {
+    max-width: var(--article-max-width);
+    margin: 0 auto;
+    padding: 0 40px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  
+  .article-body p {
+    margin-bottom: 32px;
+  }
+  
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--ink);
+    margin: 64px 0 24px;
+    line-height: 1.2;
+  }
+  
+  .article-body em {
+    color: var(--gold-dark);
+    font-style: italic;
+  }
+  
+  .article-pullquote {
+    font-family: var(--font-display);
+    font-size: 36px;
+    line-height: 1.3;
+    color: var(--ink);
+    border-left: 2px solid var(--gold);
+    padding-left: 40px;
+    margin: 60px -80px 60px 0;
+    font-weight: 300;
+  }
+  
+  .article-image-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    height: 60vh;
+    object-fit: cover;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .article-footer {
+    max-width: var(--article-max-width);
+    margin: 80px auto 0;
+    padding: 60px 40px 0;
+    border-top: 1px solid var(--stone-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .author-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .author-name {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  
+  .author-role {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  
+  .read-progress {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    height: 2px;
+    background: var(--gold);
+    width: 0%;
+    z-index: 1001;
+    transition: width 0.1s ease;
+  }
+
+  @media (max-width: 768px) {
+    .article-pullquote {
+      margin: 40px 0;
+      font-size: 28px;
+    }
+    .article-hero {
+      height: 60vh;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="progressBar"></div>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html">Lux<span>Estate</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="agents.html">Agents</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="nav-cta" onclick="window.location.href='contact.html'">Inquire</button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── ARTICLE HERO ─── -->
+<header class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-header">
+    <span class="article-category">Market Insight</span>
+    <h1 class="article-title">The Ultra-Prime Property Market in 2025: What Global Wealth is Buying Now</h1>
+    <div class="article-meta">
+      <span>By Arthur Rothschild</span>
+      <span>•</span>
+      <span>March 12, 2025</span>
+      <span>•</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── ARTICLE CONTENT ─── -->
+<div class="article-content-wrap">
+  <article class="article-body">
+    <p>In the rarefied air of the ultra-prime real estate market, the definition of luxury has undergone a profound transformation. As we move through 2025, the world's most discerning buyers are no longer looking for just square footage or ostentatious displays of wealth. Instead, they are seeking <em>curated experiences</em>, absolute privacy, and architectural masterpieces that serve as both sanctuaries and appreciating assets.</p>
+    
+    <p>The global landscape is shifting. While traditional hubs like Geneva, London, and New York remain cornerstones of the luxury market, we are seeing a massive influx of capital into "lifestyle destinations"—places where the boundary between work and retreat is seamlessly blurred. Dubai, Miami, and the Swiss Alps are experiencing unprecedented demand for trophy properties that offer more than just a place to reside.</p>
+
+    <h2>The Rise of the "Invisible Home"</h2>
+    <p>Privacy has always been the ultimate luxury, but today it is being engineered into the very DNA of architecture. We are seeing a surge in demand for properties that feature subterranean entrances, biometric security hidden behind artisanal panels, and landscaping designed specifically to block satellite imaging. The modern billionaire wants to be <em>completely invisible</em> while maintaining a 360-degree connection to their environment.</p>
+    
+    <blockquote class="article-pullquote">
+      "True luxury is the ability to disappear in plain sight, surrounded by beauty that no one else knows exists."
+    </blockquote>
+
+    <p>This desire for invisibility is coupled with a technological revolution. AI-driven building management systems now anticipate a resident's needs before they are even expressed—adjusting lighting to circadian rhythms, managing air quality at a hospital-grade level, and ensuring the property remains carbon-neutral through integrated renewable systems that are virtually silent.</p>
+
+    <img src="assets/luxury_penthouse_interior_1777502154743.png" alt="Ultra-Prime Interior" class="article-image-full">
+
+    <h2>Wellness as the New Golden Standard</h2>
+    <p>The "home spa" has been replaced by the "home longevity center." We are now facilitating acquisitions for properties that include cryotherapy chambers, hyperbaric oxygen tanks, and private medical suites. Buyers are increasingly viewing their homes as the primary tool for their health and longevity. It's no longer about a gym; it's about a complete ecosystem designed to optimize human performance.</p>
+
+    <p>Furthermore, the biophilic movement has reached its zenith. Internal courtyard forests, waterfall walls that act as natural air purifiers, and "living" facades are no longer optional extras. They are essential components for the modern buyer who recognizes that mental well-being is intrinsically tied to their proximity to the natural world.</p>
+
+    <img src="assets/hero_pool.png" alt="Luxury Wellness Pool" class="article-image-full">
+
+    <h2>Conclusion: A Legacy of Curation</h2>
+    <p>As we look toward the remainder of 2025, the ultra-prime market remains remarkably resilient. For the world's 0.1%, real estate remains the most tangible and rewarding way to preserve legacy. However, the properties that will hold their value—and their allure—are those that successfully blend <em>technological invisibility</em> with <em>uncompromising architectural soul</em>.</p>
+    
+    <p>At LuxEstate, we continue to bridge the gap between these extraordinary properties and the individuals who deserve them. The market is not just about price; it's about the elevation of existence.</p>
+
+    <div class="article-footer">
+      <div class="author-card">
+        <img src="assets/leader_arthur.png" alt="Arthur Rothschild" class="author-avatar">
+        <div>
+          <div class="author-name">Arthur Rothschild</div>
+          <div class="author-role">Founder & Chairman, LuxEstate</div>
+        </div>
+      </div>
+      <div class="article-share">
+        <!-- Social share icons could go here -->
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- ─── RELATED JOURNAL ─── -->
+<section style="padding:100px 80px;background:var(--stone)">
+  <div style="max-width:var(--article-max-width);margin:0 auto">
+    <div class="section-label">Continue Reading</div>
+    <h2 class="section-title">More from the <em>Journal</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px">
+      <div class="blog-card" onclick="window.location.href='journal-detail.html'">
+        <div class="blog-card-img"><img src="assets/journal_design.png" alt="Design" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="blog-card-content">
+          <div class="blog-category">Design</div>
+          <h3 class="blog-title">The New Minimalism: Warmth and Texture</h3>
+        </div>
+      </div>
+      <div class="blog-card" onclick="window.location.href='journal-detail.html'">
+        <div class="blog-card-img"><img src="assets/journal_architecture.png" alt="Architecture" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="blog-card-content">
+          <div class="blog-category">Architecture</div>
+          <h3 class="blog-title">Inside the World's Most Celebrated Villas</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Lux<span>Estate</span></div>
+      <p class="footer-desc">The world's most exclusive real estate platform, connecting extraordinary properties with extraordinary people since 2001.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Properties</h4>
+      <a href="properties.html">All Listings</a>
+      <a href="properties.html">Off-Market</a>
+      <a href="properties.html">International</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="blog.html">Journal</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 LuxEstate International. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+<script>
+  // Progress bar logic
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+  });
+
+  // Hero Parallax
+  gsap.to('.article-hero-bg', {
+    yPercent: 20,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.article-hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  // Reveal animations for content
+  gsap.from('.article-body p, .article-body h2, .article-image-full', {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.1,
+    scrollTrigger: {
+      trigger: '.article-body',
+      start: 'top 80%',
+    }
+  });
+</script>
+</body>
+</html>
