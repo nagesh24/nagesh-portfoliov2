@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap');
 
 :root {
-    --bg-dark: #000;
-    --bg-darker: #000;
-    --bg-card: #050505;
-    --text-main: #fdfdfd;
-    --text-muted: #a0a0a0;
+    --bg-dark: #fcfcfc;
+    --bg-darker: #f5f5f5;
+    --bg-card: #ffffff;
+    --text-main: #111111;
+    --text-muted: #555555;
     --accent-red: #ff2033;
     --accent-red-hover: #e01c2c;
     
@@ -92,7 +92,7 @@ a {
 }
 
 .aesthetic-text {
-    background: linear-gradient(135deg, #fff 10%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(135deg, #111 10%, rgba(17, 17, 17, 0.7) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -103,9 +103,86 @@ a {
 .perform-highlight {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    color: #fff;
+    color: #111;
     font-weight: 700;
+    text-shadow: 0 0 15px rgba(17, 17, 17, 0.1);
+}
+
+.dark-section {
+    --bg-dark: #000000;
+    --bg-darker: #050505;
+    --bg-card: #0a0a0a;
+    --text-main: #fdfdfd;
+    --text-muted: #a0a0a0;
+    background-color: var(--bg-darker);
+    color: var(--text-main);
+}
+
+.dark-section .aesthetic-text {
+    background: linear-gradient(135deg, #fff 10%, rgba(255, 255, 255, 0.7) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark-section .perform-highlight {
+    color: #fff;
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.dark-section .secondary-aesthetic {
+    background: rgba(255, 255, 255, 0.02);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-section .secondary-aesthetic:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Curves for light sections to simulate dark section bleeding over */
+.section:not(.dark-section):not(.premium-hero) {
+    position: relative;
+}
+
+.section:not(.dark-section):not(.premium-hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #050505;
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.section:not(.dark-section):not(.premium-hero)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #050505;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure content stays above the curve */
+.section:not(.dark-section):not(.premium-hero) > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fix Insight top curve color for Hero section transition */
+#insight::before {
+    background-color: #000;
 }
 
 /* Stat Reveal Animation */
@@ -205,16 +282,16 @@ a {
 }
 
 .secondary-aesthetic {
-    background: rgba(255, 255, 255, 0.02);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.03);
+    color: var(--text-main);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
 }
 
 .secondary-aesthetic:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.08);
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(0, 0, 0, 0.3);
 }
 
 .btn-aesthetic i {
@@ -234,20 +311,40 @@ a {
 .navbar {
     position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
-    padding: 20px 5%;
+    max-width: 100%;
+    padding: 20px 40px;
     background: transparent;
     backdrop-filter: blur(0px);
     z-index: 1000;
+    border-radius: 0;
     border-bottom: 1px solid transparent;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar.scrolled {
+    top: 10px;
+    width: 85%;
+    max-width: 980px;
+    border-radius: 40px;
     background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 14px 5%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 25px;
+}
+
+.navbar .logo,
+.navbar .hamburger {
+    color: #fff;
+}
+
+.navbar .logo {
+    display: inline-block;
+    white-space: nowrap;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
 }
 
 .nav-container {
@@ -262,6 +359,25 @@ a {
     display: flex;
     align-items: center;
     gap: 20px;
+    white-space: nowrap;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+}
+
+.navbar .btn-primary {
+    background-color: var(--accent-red);
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 28px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(255, 32, 51, 0.15);
+}
+
+.navbar .btn-primary:hover {
+    background-color: var(--accent-red-hover);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 32, 51, 0.3);
 }
 
 .logo {
@@ -274,17 +390,36 @@ a {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 30px;
+    gap: 5px;
+    background: transparent;
+    padding: 6px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+.navbar.scrolled .nav-links {
+    /* Optional: subtle inner background if desired, but parent handles it */
 }
 
 .nav-links a {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-muted);
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 24px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--text-main);
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+}
+
+.navbar.scrolled .nav-links a:hover,
+.navbar.scrolled .nav-links a.active {
+    background: #fff;
+    color: #111;
 }
 
 .hamburger {
@@ -1235,7 +1370,7 @@ a {
 
 .item-desc {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: var(--text-muted);
     line-height: 1.5;
     max-width: 360px;
 }
@@ -1251,10 +1386,10 @@ a {
     align-items: center;
     gap: 12px;
     padding: 10px 25px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border: 1px solid var(--text-muted);
     border-radius: 50px;
-    color: white;
+    color: var(--text-main);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1269,10 +1404,10 @@ a {
 }
 
 .achieve-btn:hover {
-    background: white;
-    color: black;
-    border-color: white;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    background: var(--accent-red);
+    color: #fff;
+    border-color: var(--accent-red);
+    box-shadow: 0 5px 25px rgba(255, 32, 51, 0.3);
     transform: translateY(-3px);
 }
 
@@ -1328,10 +1463,10 @@ a {
 }
 
 .solution-marker {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    background: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0 0 15px rgba(128, 128, 128, 0.05);
 }
 
 .status-marker i {
@@ -1347,12 +1482,12 @@ a {
 }
 
 .flow-title {
-    color: white;
+    color: var(--text-main);
 }
 
 .item-desc {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--text-muted);
     line-height: 1.6;
     max-width: 400px;
 }
@@ -1681,7 +1816,7 @@ a {
     right: 10px;
     font-size: 8rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.015);
+    color: rgba(128, 128, 128, 0.05);
     z-index: 0;
     font-family: var(--font-main);
     user-select: none;
@@ -1691,24 +1826,34 @@ a {
 .pillar-icon {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(128, 128, 128, 0.1);
     border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: white;
+    color: var(--text-main);
     margin-bottom: 35px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(128, 128, 128, 0.2);
     transition: all 0.4s ease;
     z-index: 1;
 }
 
+@keyframes floatPillarIcon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
+.pillar-icon i {
+    animation: floatPillarIcon 3s ease-in-out infinite;
+}
+
 .standard-pillar:hover .pillar-icon {
-    background: white;
-    color: black;
+    background: var(--text-main);
+    color: var(--bg-card);
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.2);
 }
 
 .pillar-title {
@@ -1978,16 +2123,16 @@ a {
 }
 
 .primary-aesthetic {
-    background: white;
-    color: var(--bg-dark);
+    background: var(--text-main);
+    color: var(--bg-card);
     padding: 8px 8px 8px 30px;
     animation: pulse-aesthetic 2.5s infinite;
 }
 
 @keyframes pulse-aesthetic {
-    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
-    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.3); }
+    70% { box-shadow: 0 0 0 15px rgba(128, 128, 128, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(128, 128, 128, 0); }
 }
 
 .primary-aesthetic:hover {
@@ -1999,8 +2144,8 @@ a {
 .btn-icon {
     width: 50px;
     height: 50px;
-    background: var(--bg-dark);
-    color: white;
+    background: var(--bg-card);
+    color: var(--text-main);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -2029,18 +2174,18 @@ a {
     background: var(--accent-red);
     transform: scale(1.1);
 }
-.primary-aesthetic:hover .circle-spin { stroke: white; }
+.primary-aesthetic:hover .circle-spin { stroke: var(--bg-card); }
 
 .secondary-aesthetic {
     background: transparent;
-    color: white;
-    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
     padding: 0 30px;
 }
 
 .secondary-aesthetic:hover {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.5);
+    background: rgba(128, 128, 128, 0.1);
+    border-color: var(--text-main);
 }
 
 @media (max-width: 768px) {
