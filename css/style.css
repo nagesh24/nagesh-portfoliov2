@@ -1165,14 +1165,25 @@ a {
     border: 1px solid rgba(255,255,255,0.05);
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-                border-color 0.4s ease, 
-                box-shadow 0.4s ease;
+    transition: all 0.15s ease-out !important;
 }
-.process-step:hover {
-    transform: translateY(-10px);
+.process-step:nth-child(odd):hover {
+    transform: translateY(-10px) scale(1.1) rotate(-2deg) !important;
     border-color: rgba(255, 32, 51, 0.3);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+.process-step:nth-child(even):hover {
+    transform: translateY(-10px) scale(1.1) rotate(2deg) !important;
+    border-color: rgba(255, 32, 51, 0.3);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+/* Fade out other cards when timeline is hovered */
+.process-timeline:hover .process-step:not(:hover) {
+    opacity: 0.5;
+    transform: scale(0.95);
 }
 .process-step .step-number {
     font-size: 5rem;
@@ -1780,7 +1791,7 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 30px;
     padding: 60px 45px;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.15s ease-out !important;
     overflow: hidden;
     height: 100%;
     display: flex;
@@ -1799,11 +1810,26 @@ a {
     transition: opacity 0.6s ease;
 }
 
-.standard-pillar:hover {
-    transform: translateY(-10px);
+.standard-pillar:nth-child(odd):hover {
+    transform: translateY(-10px) scale(1.1) rotate(-2deg) !important;
     border-color: rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.standard-pillar:nth-child(even):hover {
+    transform: translateY(-10px) scale(1.1) rotate(2deg) !important;
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+/* Fade out other cards when grid is hovered */
+.standard-grid:hover .standard-pillar:not(:hover) {
+    opacity: 0.5;
+    transform: scale(0.95);
 }
 
 .standard-pillar:hover::before {
@@ -2332,6 +2358,113 @@ a {
     transform: translateY(0);
 }
 
+/* Mobile Menu Overlay Styles */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-100%);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-menu-content {
+    text-align: center;
+    width: 100%;
+    padding: 0 5%;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.mobile-nav-links li {
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.mobile-menu-overlay.active .mobile-nav-links li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-overlay.active .mobile-nav-links li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu-overlay.active .mobile-nav-links li:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu-overlay.active .mobile-nav-links li:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu-overlay.active .mobile-nav-links li:nth-child(4) { transition-delay: 0.4s; }
+
+.mobile-link {
+    font-size: 2.5rem;
+    font-family: var(--font-secondary);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.mobile-link:hover, .mobile-link:active {
+    color: var(--accent-red);
+}
+
+.mobile-menu-footer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.5s;
+}
+
+.mobile-menu-overlay.active .mobile-menu-footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hamburger {
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1000;
+    position: relative;
+    transition: transform 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger i {
+    transition: all 0.3s ease;
+}
+
+.hamburger.active i::before {
+    content: "\f00d"; /* FontAwesome times icon */
+}
+
+.hamburger.active {
+    transform: rotate(90deg);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .hero {
@@ -2359,6 +2492,11 @@ a {
 @media (max-width: 768px) {
     .section {
         padding: 60px 5%;
+    }
+
+    .section:not(.dark-section):not(.premium-hero)::before,
+    .section:not(.dark-section):not(.premium-hero)::after {
+        height: 30px;
     }
 
     /* Navbar fix */
